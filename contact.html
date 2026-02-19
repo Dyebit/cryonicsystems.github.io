@@ -107,7 +107,7 @@
 
     </div>
     <div class="contact-form reveal">
-      <form id="contactForm" action="https://formspree.io/f/mdalloqk" method="POST">
+      <form id="contactForm">
         <div class="form-row">
           <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your name" required></div>
           <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="you@company.com" required></div>
@@ -116,10 +116,14 @@
         <input type="hidden" name="_subject" value="New message from cryonicsystems.com">
         <input type="text" name="_gotcha" style="display:none">
         <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." required></textarea></div>
-        <button type="submit" class="btn-primary btn-submit">Send Message <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div id="formStatus" class="form-status"></div>
+        <button type="submit" class="btn-primary btn-submit" id="submitBtn">Send Message <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <p class="form-note">We'll get back to you within 1 business day.</p>
       </form>
+      <div id="formSuccess" style="display:none; text-align:center; padding: 3rem 2rem;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:1rem;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <h3 style="color:#ffffff; font-size:1.3rem; margin-bottom:0.5rem;">Message sent!</h3>
+        <p style="color:#888888; font-size:0.95rem;">Thanks for reaching out. We'll get back to you within 1 business day.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -141,6 +145,32 @@ var observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  var formData = new FormData(this);
+  fetch('https://formspree.io/f/mdalloqk', {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  }).then(function(response) {
+    if (response.ok) {
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    }
+  }).catch(function() {
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+    alert('Something went wrong. Please try again.');
+  });
+});
 </script>
 
 </body>
