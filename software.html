@@ -531,17 +531,27 @@
     <div class="product-hero-text">
       <span class="product-type purple">Integrated Development Environment</span>
       <h2>Singularity</h2>
-      <p class="product-desc">A next-generation code editor and development environment with deeply integrated AI assistance. Singularity brings together a powerful editor, built-in terminal, extension marketplace, and multi-provider AI — all in a single, streamlined desktop application.</p>
+      <p class="product-desc">A next-generation code editor and development environment with deeply integrated AI assistance. Singularity brings together a powerful editor, built-in terminal, extension marketplace, customizable themes, MCP server support, and multi-provider AI — all in a single, streamlined desktop application.</p>
       <p class="product-tagline">Your code editor should be as smart as you are. Singularity makes it smarter.</p>
       <div class="feature-pills">
         <span class="pill">Multi-Provider AI</span>
         <span class="pill">Extension Marketplace</span>
+        <span class="pill">MCP Server Support</span>
+        <span class="pill">10+ Themes</span>
         <span class="pill">Integrated Terminal</span>
-        <span class="pill">Syntax Highlighting</span>
+        <span class="pill">API Key Management</span>
         <span class="pill">Git Integration</span>
-        <span class="pill">Multi-Language Support</span>
-        <span class="pill">Dark Theme</span>
         <span class="pill">Desktop Native</span>
+      </div>
+      <div style="margin-top: 2rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="#" class="btn-primary" style="background: var(--purple); color: #fff;" onclick="alert('Download link coming soon — check back shortly!'); return false;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Windows
+        </a>
+        <a href="#" class="btn-primary" style="background: var(--purple); color: #fff;" onclick="alert('Download link coming soon — check back shortly!'); return false;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Linux (Ubuntu)
+        </a>
       </div>
     </div>
     <div class="product-hero-visual">
@@ -551,14 +561,18 @@
 
   <div class="screenshot-gallery">
     <h3>📸 In Action</h3>
-    <div class="gallery-row">
+    <div class="gallery-row" style="grid-template-columns: 1fr 1fr;">
       <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
         <img src="software/singularity-extensions.png" alt="Extension Marketplace">
         <div class="gallery-label">Extension Marketplace — Install & Manage Plugins</div>
       </div>
       <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
         <img src="software/singularity-ai.png" alt="AI Provider Settings">
-        <div class="gallery-label">AI Settings — Multi-Provider Configuration</div>
+        <div class="gallery-label">API Key Management — Multi-Provider Configuration</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+        <img src="software/singularity-settings.png" alt="Theme Settings">
+        <div class="gallery-label">Appearance — 10+ Built-In Themes</div>
       </div>
     </div>
   </div>
@@ -569,40 +583,49 @@
       <div class="cap-card">
         <div class="cap-icon purple">🤖</div>
         <h4>Multi-Provider AI Assistant</h4>
-        <p>Choose your AI provider — OpenAI, Anthropic, Google Gemini, xAI, DeepSeek, Moonshot Kimi, or Alibaba Qwen. Bring your own API key and get intelligent code assistance right in the editor.</p>
+        <p>Choose your AI provider — OpenAI, Anthropic, Google Gemini, xAI, DeepSeek, Moonshot Kimi, Alibaba Qwen, or Cohere. Bring your own API key with encrypted local storage and get intelligent code assistance right in the editor.</p>
       </div>
       <div class="cap-card">
         <div class="cap-icon purple">🧩</div>
         <h4>Extension Marketplace</h4>
-        <p>A rich ecosystem of extensions for language support, linting, formatting, profiling, and Git tooling. Install what you need with one click — from Rust Analyzer to Prettier.</p>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon purple">💻</div>
-        <h4>Integrated Terminal</h4>
-        <p>A full-featured terminal built directly into the editor. Run builds, execute scripts, manage version control — without ever leaving your workspace.</p>
+        <p>A rich ecosystem of extensions for language support, linting, formatting, profiling, and Git tooling. Install what you need with one click — from Rust Analyzer to Prettier — complete with download counts and verified publishers.</p>
       </div>
       <div class="cap-card">
         <div class="cap-icon purple">🎨</div>
-        <h4>Modern Editor Experience</h4>
-        <p>Syntax highlighting, IntelliSense-style completions, file explorer, search, and multi-tab editing. Everything you expect from a professional editor, purpose-built from scratch.</p>
+        <h4>10+ Built-In Themes</h4>
+        <p>Choose from Dark, Light, Midnight, Nord, Solarized, Monokai, Dracula, Catppuccin, High Contrast, and more. Full appearance customization with editor settings for font, tab size, and formatting preferences.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon purple">🔌</div>
+        <h4>MCP Server Support</h4>
+        <p>Connect to Model Context Protocol servers directly from settings. Extend your AI assistant's capabilities with external tools, data sources, and custom integrations.</p>
       </div>
       <div class="cap-card">
         <div class="cap-icon purple">🔒</div>
         <h4>Privacy-First Design</h4>
-        <p>Your code stays on your machine. AI interactions use your own API keys with direct provider connections — no middleman, no data collection, no telemetry.</p>
+        <p>Your code stays on your machine. API keys are encrypted and stored locally. Direct provider connections — no middleman, no data collection, no telemetry.</p>
       </div>
       <div class="cap-card">
-        <div class="cap-icon purple">🖥️</div>
-        <h4>Native Desktop Application</h4>
-        <p>Built as a desktop-native application for speed and reliability. No browser overhead, no cloud dependency — a tool that works where and when you need it.</p>
+        <div class="cap-icon purple">💻</div>
+        <h4>Full Development Environment</h4>
+        <p>File explorer, integrated terminal, search, multi-tab editing, syntax highlighting, and a welcome screen to get you started. Everything you need in a native desktop application — no browser overhead.</p>
       </div>
     </div>
   </div>
 
   <div class="product-cta">
-    <h3>Interested in Singularity?</h3>
-    <p>Reach out to learn more about licensing and early access.</p>
-    <a href="contact.html" class="btn-primary">Get in Touch</a>
+    <h3>Ready to try Singularity?</h3>
+    <p>Download the latest release and start coding with AI assistance built right in.</p>
+    <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+      <a href="#" class="btn-primary" style="background: var(--purple); color: #fff;" onclick="alert('Download link coming soon — check back shortly!'); return false;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Windows
+      </a>
+      <a href="#" class="btn-primary" style="background: var(--purple); color: #fff;" onclick="alert('Download link coming soon — check back shortly!'); return false;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Linux (Ubuntu)
+      </a>
+    </div>
   </div>
 </div>
 
